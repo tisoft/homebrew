@@ -13,6 +13,10 @@ class Gtkx <Formula
   #depends_on 'libtiff'
   #depends_on 'jpeg'
 
+  def skip_clean? path
+	true
+  end
+
   def install
     ENV.gcc_4_2
     
