@@ -14,13 +14,12 @@ class Gtkx <Formula
   #depends_on 'jpeg'
 
   def install
-    ENV.x11
-
+    ENV.gcc_4_2
+    
     system "./configure", "--prefix=#{prefix}",
                           "--disable-debug",
                           "--disable-dependency-tracking",
                           "--with-gdktarget=quartz",
-                          "--enable-xinerama",
                           "--disable-gtk-doc",
                           "--without-libtiff",
                           "--without-libjpeg"
