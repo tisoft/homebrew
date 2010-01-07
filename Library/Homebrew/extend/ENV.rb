@@ -160,6 +160,13 @@ module HomebrewEnvExtension
     self['CFLAGS']=self['CXXFLAGS'] = SAFE_CFLAGS_FLAGS
   end
 
+  def gettext
+  	append 'CPPFLAGS', "-fnested-functions -I#{Formula.factory('gettext').include}" 
+  	append 'LDFLAGS', "-L#{Formula.factory('gettext').lib}" 
+  	append 'MSGFMT', "#{Formula.factory('gettext').bin}/msgfmt" 
+  	append 'MSGMERGE', "#{Formula.factory('gettext').bin}/msgmerge" 
+  	append 'XGETTEXT', "#{Formula.factory('gettext').bin}/xgettext" 
+  end
   def libxml2
     append_to_cflags ' -I/usr/include/libxml2'
   end
